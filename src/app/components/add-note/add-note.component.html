@@ -1,1 +1,29 @@
-<p>add-note works!</p>
+<form *ngIf="showAddNote" class="add-form" (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <label for="title"></label>
+    <input
+      type="text"
+      name="title"
+      [(ngModel)]="title"
+      id="title"
+      placeholder="Note Title"
+    />
+  </div>
+  <div class="form-control">
+    <label for="desc"></label>
+    <textarea
+      name="desc"
+      [(ngModel)]="desc"
+      id="desc"
+      cols="30"
+      rows="10"
+      placeholder="Note Description"
+    ></textarea>
+  </div>
+  <input
+    type="submit"
+    value="{{ isUpdate ? 'Update Note' : 'Save Note' }}"
+    [ngStyle]="{ 'background-color': isUpdate ? 'green' : 'blue' }"
+    class="btn btn-block"
+  />
+</form>

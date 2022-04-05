@@ -1,1 +1,7 @@
-<app-note-item *ngFor="let note of notes | orderBy: !key" [note]="note"></app-note-item>
+<app-add-note (onSubmitNote)="onSubmitNote($event)"></app-add-note>
+<app-note-item
+  *ngFor="let note of notes | orderBy: !key"
+  [note]="note"
+  (onDeleteNote)="deleteNote(note)"
+  (onLoadNote)="loadNote(note)"
+></app-note-item>
