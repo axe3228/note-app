@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { OrderModule } from 'ngx-order-pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ButtonComponent } from './components/button/button.component';
 import { AddNoteComponent } from './components/add-note/add-note.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AboutComponent } from './pages/about/about.component';
+
+const appRoutes: Routes = [
+  { path: '', component: NotesComponent },
+  { path: 'about', component: AboutComponent },
+];
 
 @NgModule({
   declarations: [
@@ -22,7 +29,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HeaderComponent,
     FooterComponent,
     ButtonComponent,
-    AddNoteComponent
+    AddNoteComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +39,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     OrderModule,
     HttpClientModule,
     FormsModule,
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
   ],
   providers: [],
   bootstrap: [AppComponent]
